@@ -1,7 +1,4 @@
 <?php
-
-echo 'Arquivo de funções aqui!'.PHP_EOL;
-
 function sacar(array $conta, int $valorASerSacado)
 {
     if ($valorASerSacado > $conta['saldo'])
@@ -17,8 +14,18 @@ function depositar(array $conta, int $valorASerDepositado)
     } else {
         return $conta['saldo'] += $valorASerDepositado;
     }
-}    
+}
 
-function titularComLetrasMaiusculas(array &$conta){
+function titularComLetrasMaiusculas(array &$conta)
+{
     $conta['titular'] = strtoupper($conta['titular']);
 }
+
+function exibeConta(array $conta, string $cpf)
+{
+    ['titular' => $titular, 'saldo' => $saldo] = $conta;
+    echo "[$cpf] - Titular: $titular | Saldo: $saldo";
+}
+
+?>
+
